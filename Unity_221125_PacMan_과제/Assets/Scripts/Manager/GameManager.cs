@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     private GameObject coinPrefab;
     private GameObject wallPrefab;
+    private GameObject monsterPrefab;
 
     private GameObject playerObject;
 
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
 
         coinPrefab = Resources.Load<GameObject>("Prefabs/Coin");
         wallPrefab = Resources.Load<GameObject>("Prefabs/Wall");
+        monsterPrefab = Resources.Load<GameObject>("Prefabs/Monster");
 
         CreateStage();
     }
@@ -58,6 +60,10 @@ public class GameManager : MonoBehaviour
                 playerObject = Instantiate(playerPrefab, pos, Quaternion.identity);
                 virtualCamera.Follow = playerObject.transform;
             }
+                break;
+            case ObjectType.MONSTER:
+                //monsterPrefab.GetComponent<MonsterControl>().SetPlayer(playerObject);
+                Instantiate(monsterPrefab, pos, Quaternion.identity);
                 break;
         }
 
