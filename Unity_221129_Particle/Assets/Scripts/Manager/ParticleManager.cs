@@ -52,6 +52,10 @@ public class ParticleManager : MonoBehaviour
             if(!particle.activeSelf)
             {
                 particle.SetActive(true);
+                print("pos : " + pos);
+                pos.z += 50;
+                print("pos : " + pos);
+
                 particle.transform.position = pos;
                 particle.transform.rotation = rot;
                 return;
